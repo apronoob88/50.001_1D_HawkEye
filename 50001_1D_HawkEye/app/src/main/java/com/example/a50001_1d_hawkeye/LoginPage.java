@@ -47,7 +47,7 @@ public class LoginPage extends AppCompatActivity {
     }
 
     private void validate(String userId, String userPassword){
-        if (userId.equals("1003565") && userPassword.equals("12345")){
+        if (userId.equals("1003565") && userPassword.equals("123")){
             Intent intent = new Intent(LoginPage.this, SearchType.class);
             userId="";
             userPassword="";
