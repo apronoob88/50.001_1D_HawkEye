@@ -9,7 +9,9 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".Blk57"></activity>
+        <activity android:name=".Building3Lvl2"></activity>
+        <activity android:name=".Building3Lvl1" />
+        <activity android:name=".Blk57" />
         <activity android:name=".Building3" />
         <activity android:name=".Building2" />
         <activity android:name=".Building1" />
