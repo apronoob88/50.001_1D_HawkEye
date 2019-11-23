@@ -57,23 +57,16 @@ public class LoginPage extends AppCompatActivity {
         final String id=userId;
         final String password = userPassword;
         reffStudent = FirebaseDatabase.getInstance().getReference().child("Students");
-        if (userId.length()==0) {
-            Toast.makeText(LoginPage.this, "Please key in a valid Student ID", Toast.LENGTH_SHORT).show();
-        }
-        else if (userPassword.length()==0) {
-            Toast.makeText(LoginPage.this, "Please key in a valid Password", Toast.LENGTH_SHORT).show();
-        }
-
         reffStudent.addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
 
                 if (id.length()==0){
-                    Toast.makeText(LoginPage.this, "Please key in a Student ID", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(LoginPage.this, "Please key in your Student ID", Toast.LENGTH_SHORT).show();
 
                 }
                 else if(password.length()==0){
-                    Toast.makeText(LoginPage.this, "Please key in a Password", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(LoginPage.this, "Please key in your Password", Toast.LENGTH_SHORT).show();
 
                 }
                 else if (dataSnapshot.child(id).getValue()==null ){
