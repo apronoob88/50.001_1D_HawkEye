@@ -19,9 +19,9 @@ public class Building3 extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_building3);
 
-        Level1 = findViewById(R.id.buttonLvl1);
-        Level2 = findViewById(R.id.buttonLvl2);
         Back = findViewById(R.id.backButton);
+        Level1 = findViewById(R.id.b3l1);
+        Level2 = findViewById(R.id.b3l2);
 
         Level1.setOnClickListener(new View.OnClickListener() {
             @Override

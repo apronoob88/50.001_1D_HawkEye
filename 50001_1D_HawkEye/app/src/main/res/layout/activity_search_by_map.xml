@@ -103,4 +103,18 @@
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.375" />
 
+    <Button
+        android:id="@+id/SportsAndRecreationCentreButton"
+        android:layout_width="80dp"
+        android:layout_height="65dp"
+        android:alpha="0"
+        android:rotation="315"
+        android:text="SportsnRecre"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.876"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/sutdimage"
+        app:layout_constraintVertical_bias="0.465" />
+
 </androidx.constraintlayout.widget.ConstraintLayout>

@@ -8,32 +8,40 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.ImageButton;
 
-public class Building3Lvl2 extends AppCompatActivity {
+public class Blk61Lvl1 extends AppCompatActivity {
 
     private ImageButton BackButton;
-    private Button CanteenButton;
+    private Button ISH1;
+    private Button ISH2;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_building3_lvl2);
+        setContentView(R.layout.activity_blk61_lvl1);
 
-        BackButton = findViewById(R.id.backButton);
-        CanteenButton = findViewById(R.id.canteenButton);
+        BackButton=findViewById(R.id.backButton);
+        ISH1 = findViewById(R.id.ish1Button);
+        ISH2 = findViewById(R.id.ish2Button);
 
         BackButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent back = new Intent(Building3Lvl2.this, Building3.class);
+                Intent back = new Intent(Blk61Lvl1.this, Blk61.class);
                 startActivity(back);
             }
         });
-        //TODO Yutong pls link the firebase info for Canteen
-//        CanteenButton.setOnClickListener(new View.OnClickListener() {
+        //TODO Yutong pls link the firebase info for ISH1 and ISH2
+//        ISH1.setOnClickListener(new View.OnClickListener() {
 //            @Override
 //            public void onClick(View v) {
-//                Intent infopage = new Intent(Building3Lvl2.this, Infopage.class);
-//                infopage.putExtra("Location","Canteen");
+//
+//            }
+//        });
+//
+//        ISH2.setOnClickListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View v) {
+//
 //            }
 //        });
     }

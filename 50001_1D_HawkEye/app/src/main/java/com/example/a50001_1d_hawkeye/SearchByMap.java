@@ -15,6 +15,7 @@ public class SearchByMap extends AppCompatActivity {
     private Button Building2;
     private Button Building3;
     private Button Blk57;
+    private Button Blk61;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -25,6 +26,8 @@ public class SearchByMap extends AppCompatActivity {
         Building2 = findViewById(R.id.building2);
         Building3 = findViewById(R.id.building3);
         Blk57 = findViewById(R.id.blk57);
+        Blk61 = findViewById(R.id.SportsAndRecreationCentreButton);
+
         Back = findViewById(R.id.backButton);
 
         Building1.setOnClickListener(new View.OnClickListener() {
@@ -56,6 +59,14 @@ public class SearchByMap extends AppCompatActivity {
             public void onClick(View v) {
                 Intent blk57 = new Intent(SearchByMap.this, Blk57.class);
                 startActivity(blk57);
+            }
+        });
+
+        Blk61.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent blk61 = new Intent(SearchByMap.this, Blk61.class);
+                startActivity(blk61);
             }
         });
 

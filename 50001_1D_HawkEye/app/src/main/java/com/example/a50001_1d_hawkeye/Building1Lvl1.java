@@ -8,32 +8,40 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.ImageButton;
 
-public class Building3Lvl2 extends AppCompatActivity {
+public class Building1Lvl1 extends AppCompatActivity {
 
     private ImageButton BackButton;
-    private Button CanteenButton;
+    private Button LibLvl1Button;
+    private Button dStarButton;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_building3_lvl2);
+        setContentView(R.layout.activity_building1_lvl1);
 
         BackButton = findViewById(R.id.backButton);
-        CanteenButton = findViewById(R.id.canteenButton);
+        LibLvl1Button = findViewById(R.id.librarylvl1button);
+        dStarButton = findViewById(R.id.dstarButton);
 
         BackButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent back = new Intent(Building3Lvl2.this, Building3.class);
+                Intent back = new Intent(Building1Lvl1.this, Building1.class);
                 startActivity(back);
             }
         });
-        //TODO Yutong pls link the firebase info for Canteen
-//        CanteenButton.setOnClickListener(new View.OnClickListener() {
+        //TODO Yutong pls link the firebase info for Lib lvl 1 and dStar Bistro
+//        LibLvl1Button.setOnClickListener(new View.OnClickListener() {
 //            @Override
 //            public void onClick(View v) {
-//                Intent infopage = new Intent(Building3Lvl2.this, Infopage.class);
-//                infopage.putExtra("Location","Canteen");
+//
+//            }
+//        });
+//
+//        dStarButton.setOnClickListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View v) {
+//
 //            }
 //        });
     }

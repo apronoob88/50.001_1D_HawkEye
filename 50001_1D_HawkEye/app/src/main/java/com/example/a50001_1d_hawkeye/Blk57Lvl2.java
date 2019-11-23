@@ -8,32 +8,30 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.ImageButton;
 
-public class Building3Lvl2 extends AppCompatActivity {
+public class Blk57Lvl2 extends AppCompatActivity {
 
     private ImageButton BackButton;
-    private Button CanteenButton;
+    private Button MPHButton;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_building3_lvl2);
+        setContentView(R.layout.activity_blk57_lvl2);
 
         BackButton = findViewById(R.id.backButton);
-        CanteenButton = findViewById(R.id.canteenButton);
+        MPHButton = findViewById(R.id.mphButton);
 
         BackButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent back = new Intent(Building3Lvl2.this, Building3.class);
-                startActivity(back);
+                Intent back = new Intent(Blk57Lvl2.this, Blk57.class);
             }
         });
-        //TODO Yutong pls link the firebase info for Canteen
-//        CanteenButton.setOnClickListener(new View.OnClickListener() {
+        //TODO Yutong pls link the firebase info for MPH
+//        MPHButton.setOnClickListener(new View.OnClickListener() {
 //            @Override
 //            public void onClick(View v) {
-//                Intent infopage = new Intent(Building3Lvl2.this, Infopage.class);
-//                infopage.putExtra("Location","Canteen");
+//
 //            }
 //        });
     }
