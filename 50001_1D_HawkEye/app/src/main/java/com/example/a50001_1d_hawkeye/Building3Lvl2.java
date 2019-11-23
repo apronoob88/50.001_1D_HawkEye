@@ -8,11 +8,14 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.ImageButton;
 
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
+
 public class Building3Lvl2 extends AppCompatActivity {
 
     private ImageButton BackButton;
     private Button CanteenButton;
-
+    private DatabaseReference reff;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -29,12 +32,19 @@ public class Building3Lvl2 extends AppCompatActivity {
             }
         });
         //TODO Yutong pls link the firebase info for Canteen
-//        CanteenButton.setOnClickListener(new View.OnClickListener() {
-//            @Override
-//            public void onClick(View v) {
-//                Intent infopage = new Intent(Building3Lvl2.this, Infopage.class);
-//                infopage.putExtra("Location","Canteen");
-//            }
-//        });
+        CanteenButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                reff = FirebaseDatabase.getInstance().getReference().child("Locations");
+                //final String checkLocation=updateItem.get(position).location;
+                final Intent intent = new Intent();
+
+                intent.putExtra("Location", "Canteen");
+                intent.putExtra("picture",R.drawable.canteen);
+
+                intent.setClass(Building3Lvl2.this,Location.class);
+                startActivity(intent);
+            }
+        });
     }
 }

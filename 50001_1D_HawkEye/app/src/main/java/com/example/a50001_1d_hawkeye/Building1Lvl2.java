@@ -8,11 +8,14 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.ImageButton;
 
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
+
 public class Building1Lvl2 extends AppCompatActivity {
 
     private ImageButton BackButton;
     private Button LibLvl2Button;
-
+    private DatabaseReference reff;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -29,11 +32,19 @@ public class Building1Lvl2 extends AppCompatActivity {
             }
         });
         //TODO Yutong pls link the firebase info for Lib lvl 2
-//        LibLvl2Button.setOnClickListener(new View.OnClickListener() {
-//            @Override
-//            public void onClick(View v) {
-//
-//            }
-//        });
+        LibLvl2Button.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                reff = FirebaseDatabase.getInstance().getReference().child("Locations");
+                final Intent intent = new Intent();
+
+                intent.putExtra("Location", "Library (level 2)");
+                intent.putExtra("picture",R.drawable.lib2);
+
+                intent.setClass(Building1Lvl2.this,Location.class);
+                startActivity(intent);
+
+            }
+        });
     }
 }

@@ -8,11 +8,14 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.ImageButton;
 
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
+
 public class Blk57Lvl2 extends AppCompatActivity {
 
     private ImageButton BackButton;
     private Button MPHButton;
-
+    private DatabaseReference reff;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -28,11 +31,18 @@ public class Blk57Lvl2 extends AppCompatActivity {
             }
         });
         //TODO Yutong pls link the firebase info for MPH
-//        MPHButton.setOnClickListener(new View.OnClickListener() {
-//            @Override
-//            public void onClick(View v) {
-//
-//            }
-//        });
+        MPHButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                reff = FirebaseDatabase.getInstance().getReference().child("Locations");
+                final Intent intent = new Intent();
+
+                intent.putExtra("Location", "Multi-Purpose Hall");
+                intent.putExtra("picture",R.drawable.mph);
+
+                intent.setClass(Blk57Lvl2.this,Location.class);
+                startActivity(intent);
+            }
+        });
     }
 }
