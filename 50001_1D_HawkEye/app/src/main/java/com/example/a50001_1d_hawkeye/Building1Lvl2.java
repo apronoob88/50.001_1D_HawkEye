@@ -21,16 +21,10 @@ public class Building1Lvl2 extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_building1_lvl2);
 
-        BackButton = findViewById(R.id.backButton);
+
         LibLvl2Button = findViewById(R.id.librarylvl2button);
 
-        BackButton.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Intent back = new Intent(Building1Lvl2.this, Building1.class);
-                startActivity(back);
-            }
-        });
+
         //TODO Yutong pls link the firebase info for Lib lvl 2
         LibLvl2Button.setOnClickListener(new View.OnClickListener() {
             @Override

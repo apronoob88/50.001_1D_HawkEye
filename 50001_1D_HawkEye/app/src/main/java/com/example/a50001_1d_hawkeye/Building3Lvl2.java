@@ -21,16 +21,9 @@ public class Building3Lvl2 extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_building3_lvl2);
 
-        BackButton = findViewById(R.id.backButton);
+
         CanteenButton = findViewById(R.id.canteenButton);
 
-        BackButton.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Intent back = new Intent(Building3Lvl2.this, Building3.class);
-                startActivity(back);
-            }
-        });
         //TODO Yutong pls link the firebase info for Canteen
         CanteenButton.setOnClickListener(new View.OnClickListener() {
             @Override

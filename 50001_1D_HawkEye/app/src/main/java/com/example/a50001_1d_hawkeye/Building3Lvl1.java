@@ -21,16 +21,10 @@ public class Building3Lvl1 extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_building3_lvl1);
 
-        BackButton = findViewById(R.id.backButton);
+
         CampusCentreButton = findViewById(R.id.campuscentreButton);
 
-        BackButton.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Intent back = new Intent(Building3Lvl1.this, Building3.class);
-                startActivity(back);
-            }
-        });
+
         //TODO Yutong pls link the firebase info for Campus Centre
         CampusCentreButton.setOnClickListener(new View.OnClickListener() {
             @Override

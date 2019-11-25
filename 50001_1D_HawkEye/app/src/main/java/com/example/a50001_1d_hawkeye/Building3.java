@@ -19,7 +19,6 @@ public class Building3 extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_building3);
 
-        Back = findViewById(R.id.backButton);
         Level1 = findViewById(R.id.b3l1);
         Level2 = findViewById(R.id.b3l2);
 
@@ -38,14 +37,6 @@ public class Building3 extends AppCompatActivity {
                 startActivity(B3L2);
             }
         });
-        Back.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Intent back = new Intent(Building3.this, SearchByMap.class);
-                startActivity(back);
-            }
-        });
-
 
     }
 }

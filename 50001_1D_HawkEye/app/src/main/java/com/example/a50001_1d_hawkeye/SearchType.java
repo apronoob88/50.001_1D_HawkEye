@@ -17,7 +17,6 @@ public class SearchType extends AppCompatActivity {
     private Button Keyword;
     private Button Map;
     private Button OccupancyRanking;
-    private ImageButton Back;
 
 
     @Override
@@ -25,10 +24,11 @@ public class SearchType extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_search_type);
 
+
         Keyword = findViewById(R.id.buttonKeyword);
         Map = findViewById(R.id.buttonMap);
         OccupancyRanking = findViewById(R.id.buttonOccupancyRanking);
-        Back = findViewById(R.id.backButton);
+
 
         Keyword.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -53,15 +53,6 @@ public class SearchType extends AppCompatActivity {
                 startActivity(rank);
             }
         });
-
-        Back.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Intent back = new Intent(SearchType.this, LoginPage.class);
-                startActivity(back);
-            }
-        });
-
 
     }
 }

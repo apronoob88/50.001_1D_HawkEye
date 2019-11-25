@@ -23,7 +23,7 @@ public class Blk57 extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_blk57);
 
-        Back = findViewById(R.id.backButton);
+
         Level2 = findViewById(R.id.blk57l2);
 
 
@@ -35,12 +35,5 @@ public class Blk57 extends AppCompatActivity {
             }
         });
 
-        Back.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Intent back = new Intent(Blk57.this, SearchByMap.class);
-                startActivity(back);
-            }
-        });
     }
 }

@@ -13,7 +13,7 @@ import com.google.firebase.database.FirebaseDatabase;
 
 public class Blk57Lvl2 extends AppCompatActivity {
 
-    private ImageButton BackButton;
+
     private Button MPHButton;
     private DatabaseReference reff;
     @Override
@@ -21,15 +21,9 @@ public class Blk57Lvl2 extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_blk57_lvl2);
 
-        BackButton = findViewById(R.id.backButton);
+
         MPHButton = findViewById(R.id.mphButton);
 
-        BackButton.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Intent back = new Intent(Blk57Lvl2.this, Blk57.class);
-            }
-        });
         //TODO Yutong pls link the firebase info for MPH
         MPHButton.setOnClickListener(new View.OnClickListener() {
             @Override

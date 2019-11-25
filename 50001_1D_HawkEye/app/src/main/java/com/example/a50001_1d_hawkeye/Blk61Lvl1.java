@@ -13,7 +13,7 @@ import com.google.firebase.database.FirebaseDatabase;
 
 public class Blk61Lvl1 extends AppCompatActivity {
 
-    private ImageButton BackButton;
+    private Button Gym;
     private Button ISH1;
     private Button ISH2;
     private DatabaseReference reff;
@@ -23,18 +23,27 @@ public class Blk61Lvl1 extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_blk61_lvl1);
 
-        BackButton=findViewById(R.id.backButton);
+        Gym = findViewById(R.id.gymButton);
         ISH1 = findViewById(R.id.ish1Button);
         ISH2 = findViewById(R.id.ish2Button);
 
-        BackButton.setOnClickListener(new View.OnClickListener() {
+
+        //TODO Yutong pls link the firebase info for ISH1 and ISH2
+        Gym.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent back = new Intent(Blk61Lvl1.this, Blk61.class);
-                startActivity(back);
+                reff = FirebaseDatabase.getInstance().getReference().child("Locations");
+                final Intent intent = new Intent();
+
+                intent.putExtra("Location", "Gym");
+                intent.putExtra("picture",R.drawable.gym);
+
+                intent.setClass(Blk61Lvl1.this,Location.class);
+                startActivity(intent);
             }
         });
-        //TODO Yutong pls link the firebase info for ISH1 and ISH2
+
+
         ISH1.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {

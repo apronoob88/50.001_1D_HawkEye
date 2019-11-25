@@ -18,16 +18,10 @@ public class Blk61 extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_blk61);
 
-        BackButton = findViewById(R.id.backButton);
+
         Level1 = findViewById(R.id.blk61l1);
 
-        BackButton.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Intent back = new Intent(Blk61.this, SearchByMap.class);
-                startActivity(back);
-            }
-        });
+
 
         Level1.setOnClickListener(new View.OnClickListener() {
             @Override

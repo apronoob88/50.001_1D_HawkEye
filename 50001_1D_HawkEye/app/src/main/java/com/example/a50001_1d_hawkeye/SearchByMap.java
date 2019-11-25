@@ -28,7 +28,7 @@ public class SearchByMap extends AppCompatActivity {
         Blk57 = findViewById(R.id.blk57);
         Blk61 = findViewById(R.id.SportsAndRecreationCentreButton);
 
-        Back = findViewById(R.id.backButton);
+
 
         Building1.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -70,12 +70,5 @@ public class SearchByMap extends AppCompatActivity {
             }
         });
 
-        Back.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Intent back = new Intent(SearchByMap.this, SearchType.class);
-                startActivity(back);
-            }
-        });
     }
 }
