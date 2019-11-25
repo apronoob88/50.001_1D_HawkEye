@@ -4,58 +4,88 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@drawable/gradient"
     tools:context=".LoginPage">
 
     <EditText
         android:id="@+id/editStudentId"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_width="250dp"
+        android:layout_height="50dp"
+        android:background="#0FFFFFFF"
+        android:textCursorDrawable="@null"
+        android:drawableLeft="@drawable/ic_action_username"
+        android:drawablePadding="10dp"
         android:ems="10"
         android:hint="Student ID"
         android:inputType="textPersonName"
+        android:paddingLeft="10dp"
+        android:textColor="#FCFCFC"
+        android:textColorHint="#FCFCFC"
+        android:textSize="18dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.351" />
+        app:layout_constraintVertical_bias="0.499" />
 
     <EditText
         android:id="@+id/editPassword"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_width="250dp"
+        android:layout_height="50dp"
         android:layout_marginTop="27dp"
+        android:background="#0FFFFFFF"
+        android:textCursorDrawable="@null"
+        android:drawableLeft="@drawable/ic_action_password"
         android:ems="10"
         android:hint="Password"
         android:inputType="textPassword"
+        android:textColorHint="#FCFCFC"
+        android:textColor="#FCFCFC"
+        android:textSize="18dp"
+        android:drawablePadding="10dp"
+        android:paddingLeft="10dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/editStudentId"
-        app:layout_constraintVertical_bias="0.0" />
+        app:layout_constraintVertical_bias="0.042" />
 
     <Button
         android:id="@+id/buttonLogin"
         android:layout_width="103dp"
         android:layout_height="59dp"
+        android:background="@drawable/gradientlogin"
         android:text="Login"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/editPassword"
-        app:layout_constraintVertical_bias="0.114" />
+        app:layout_constraintVertical_bias="0.224" />
 
     <ImageButton
         android:id="@+id/exitButton"
-        android:background="@drawable/exitbutton"
-        android:layout_width="70dp"
-        android:layout_height="70dp"
+        android:layout_width="26dp"
+        android:layout_height="26dp"
         android:adjustViewBounds="true"
+        android:background="@drawable/exitbutton"
         android:contentDescription="exitButton"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.98"
+        app:layout_constraintHorizontal_bias="0.945"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.02"
-        />
+        app:layout_constraintVertical_bias="0.022" />
+
+    <ImageView
+        android:id="@+id/imageView3"
+        android:layout_width="318dp"
+        android:layout_height="168dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.494"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.258"
+        app:srcCompat="@drawable/logo" />
+
 </androidx.constraintlayout.widget.ConstraintLayout>
