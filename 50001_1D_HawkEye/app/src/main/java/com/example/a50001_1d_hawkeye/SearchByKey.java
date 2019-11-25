@@ -14,7 +14,8 @@ import android.widget.SearchView;
 
 
 import java.util.ArrayList;
-
+import java.util.Collections;
+import java.util.Comparator;
 
 
 import com.google.firebase.database.DatabaseReference;
@@ -58,6 +59,13 @@ public class SearchByKey extends AppCompatActivity {
         items.add(new DataItem(R.drawable.gom_gom,"Gom Gom"));
         items.add(new DataItem(R.drawable.canpus_centre,"Campus Centre"));
         items.add(new DataItem(R.drawable.canteen,"Canteen"));
+        Collections.sort(items, new Comparator<DataItem>() {
+            @Override
+            public int compare(DataItem o1, DataItem o2) {
+                return o1.getLocation().compareTo(o2.getLocation());
+            }
+        });
+        //Collections.sort(items, new Comp());
 
         getData("");
 
