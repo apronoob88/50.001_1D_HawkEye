@@ -4,15 +4,14 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@drawable/gradient"
+    android:background="@drawable/gradientlogin"
     tools:context=".LoginPage">
 
     <EditText
         android:id="@+id/editStudentId"
         android:layout_width="250dp"
         android:layout_height="50dp"
-        android:background="#0FFFFFFF"
-        android:textCursorDrawable="@null"
+        android:background="@drawable/round_corner"
         android:drawableLeft="@drawable/ic_action_username"
         android:drawablePadding="10dp"
         android:ems="10"
@@ -21,46 +20,49 @@
         android:paddingLeft="10dp"
         android:textColor="#FCFCFC"
         android:textColorHint="#FCFCFC"
+        android:textCursorDrawable="@null"
         android:textSize="18dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.503"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.499" />
+        app:layout_constraintVertical_bias="0.482" />
 
     <EditText
         android:id="@+id/editPassword"
         android:layout_width="250dp"
         android:layout_height="50dp"
         android:layout_marginTop="27dp"
-        android:background="#0FFFFFFF"
-        android:textCursorDrawable="@null"
+        android:background="@drawable/round_corner"
         android:drawableLeft="@drawable/ic_action_password"
+        android:drawablePadding="10dp"
         android:ems="10"
         android:hint="Password"
         android:inputType="textPassword"
-        android:textColorHint="#FCFCFC"
-        android:textColor="#FCFCFC"
-        android:textSize="18dp"
-        android:drawablePadding="10dp"
         android:paddingLeft="10dp"
+        android:textColor="#FCFCFC"
+        android:textColorHint="#FCFCFC"
+        android:textCursorDrawable="@null"
+        android:textSize="18dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.503"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/editStudentId"
-        app:layout_constraintVertical_bias="0.042" />
+        app:layout_constraintVertical_bias="0.035" />
 
     <Button
         android:id="@+id/buttonLogin"
         android:layout_width="103dp"
-        android:layout_height="59dp"
-        android:background="@drawable/gradientlogin"
+        android:layout_height="50dp"
+        android:background="@drawable/login_button"
         android:text="Login"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/editPassword"
-        app:layout_constraintVertical_bias="0.224" />
+        app:layout_constraintVertical_bias="0.153" />
 
     <ImageButton
         android:id="@+id/exitButton"
