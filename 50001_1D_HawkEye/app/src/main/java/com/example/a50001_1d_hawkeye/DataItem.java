@@ -18,8 +18,4 @@ public class DataItem {
     public String getLocation() {
         return location;
     }
-
-    public void setOccupancyRate(int occupancyRate) {
-        this.occupancyRate = occupancyRate;
-    }
 }
