@@ -2,7 +2,9 @@ package com.example.a50001_1d_hawkeye;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.Intent;
 import android.os.Bundle;
+import android.view.View;
 import android.widget.Button;
 
 public class SearchByRank extends AppCompatActivity {
@@ -22,5 +24,12 @@ public class SearchByRank extends AppCompatActivity {
         Sports=findViewById(R.id.buttonSports);
         BigEvents=findViewById(R.id.buttonEvents);
 
+        Study.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent blk61 = new Intent(SearchByRank.this, Study.class);
+                startActivity(blk61);
+            }
+        });
     }
 }
