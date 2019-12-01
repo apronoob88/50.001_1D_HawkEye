@@ -11,6 +11,7 @@ import android.widget.AdapterView;
 import android.widget.ImageView;
 import android.widget.ListView;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.firebase.ui.database.FirebaseListAdapter;
 import com.firebase.ui.database.FirebaseListOptions;
@@ -60,9 +61,28 @@ public class Study extends AppCompatActivity {
                 else{
                     ivOccupationRate.setImageResource(R.drawable.red);
                 }
+                final String single_view = getRef(position).getKey();
+                v.setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View v) {
+                        Toast.makeText(Study.this, single_view, Toast.LENGTH_SHORT).show();
+                        Intent moreDetailed = new Intent(Study.this,MoreDetailed.class);
+                        //attach the intent reference to access each item and key
+                        moreDetailed.putExtra("Name",single_view);
+                        int resourceId = getResources().getIdentifier(single_view, "drawable", getPackageName());
+                        moreDetailed.putExtra("recourceId",resourceId);
+                        startActivity(moreDetailed);//Start the new activity
+
+                    }
+                });
             }
         };
         listView.setAdapter(adapter);
+
+
+}
+
+
 //        listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
 //            @Override
 //            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
@@ -85,7 +105,7 @@ public class Study extends AppCompatActivity {
 //        adapter = new CustomAdapter(Study.this,R.layout.itemrow,items);
 //        listView.setAdapter(adapter);
 //        adapter.notifyDataSetChanged();
-    }
+
 
     @Override
     protected void onStart() {
