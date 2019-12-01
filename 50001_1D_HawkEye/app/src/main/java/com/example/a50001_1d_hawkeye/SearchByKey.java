@@ -68,7 +68,6 @@ public class SearchByKey extends AppCompatActivity {
             }
         });
         //Collections.sort(items, new Comp());
-
         getData("");
 
         listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
@@ -87,6 +86,8 @@ public class SearchByKey extends AppCompatActivity {
             }
         });
     }
+
+
     private void getData (String query){
         ArrayList<DataItem> output = new ArrayList<>();
         ArrayList<DataItem> filteredOutput = new ArrayList<>();
@@ -107,7 +108,7 @@ public class SearchByKey extends AppCompatActivity {
         setUpdateItem(filteredOutput);
         adapter = new CustomAdapter(SearchByKey.this,R.layout.itemrow,filteredOutput);
         listView.setAdapter(adapter);
-
+        adapter.notifyDataSetChanged();
 
     }
     @Override
