@@ -19,23 +19,37 @@ public class SearchByRank extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_search_by_rank);
 
-        Study=findViewById(R.id.buttonStudy);
-        Dining=findViewById(R.id.buttonDining);
-        Sports=findViewById(R.id.buttonSports);
-        BigEvents=findViewById(R.id.buttonEvents);
+        Study = findViewById(R.id.buttonStudy);
+        Dining = findViewById(R.id.buttonDining);
+        Sports = findViewById(R.id.buttonSports);
+        BigEvents = findViewById(R.id.buttonEvents);
 
         Study.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent blk61 = new Intent(SearchByRank.this, Study.class);
-                startActivity(blk61);
+                Intent study = new Intent(SearchByRank.this, StudyRank.class);
+                startActivity(study);
             }
         });
         Dining.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent dining= new Intent (SearchByRank.this, Dinning.class);
+                Intent dining = new Intent(SearchByRank.this, DiningRank.class);
                 startActivity(dining);
+            }
+        });
+        Sports.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent sports = new Intent(SearchByRank.this, SportsRank.class);
+                startActivity(sports);
+            }
+        });
+        BigEvents.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent bigevents = new Intent(SearchByRank.this, BigEventsRank.class);
+                startActivity(bigevents);
             }
         });
     }
