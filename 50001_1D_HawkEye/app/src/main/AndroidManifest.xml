@@ -11,8 +11,10 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".MoreDetailed"></activity>
-        <activity android:name=".Study" />
+        <activity android:name=".BigEventsRank"></activity>
+        <activity android:name=".SportsRank" />
+        <activity android:name=".StudyRank" />
+        <activity android:name=".DiningRank" />
         <activity android:name=".Location" />
         <activity android:name=".Blk61Lvl1" />
         <activity android:name=".Blk61" />
