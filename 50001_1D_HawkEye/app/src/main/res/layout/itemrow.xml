@@ -18,7 +18,7 @@
     <TextView
         android:id="@+id/tvLocation"
         android:layout_width="0dp"
-        android:layout_height="24dp"
+        android:layout_height="48dp"
         android:layout_margin="24dp"
         android:layout_weight="1"
         android:text="TextView" />

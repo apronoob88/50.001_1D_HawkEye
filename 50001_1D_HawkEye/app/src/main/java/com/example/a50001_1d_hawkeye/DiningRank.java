@@ -3,38 +3,33 @@ package com.example.a50001_1d_hawkeye;
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
-import android.content.Intent;
 import android.os.Bundle;
-import android.util.Log;
 import android.view.View;
-import android.widget.AdapterView;
 import android.widget.ImageView;
 import android.widget.ListView;
 import android.widget.TextView;
 
 import com.firebase.ui.database.FirebaseListAdapter;
 import com.firebase.ui.database.FirebaseListOptions;
-import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.Query;
 
 import java.util.ArrayList;
-import java.util.Collections;
 
-public class Study extends AppCompatActivity {
+public class DiningRank extends AppCompatActivity {
     private ListView listView;
     private ArrayList<DataItem> items;
     FirebaseListAdapter adapter;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_study);
-        listView=(ListView) findViewById(R.id.listViewStudy);
+        setContentView(R.layout.activity_dining_rank);
+        listView=(ListView) findViewById(R.id.listViewDining);
 
         Query query = FirebaseDatabase.getInstance().getReference().child("Dining").orderByChild("occupancyRate");
-        FirebaseListOptions<Dining> options = new FirebaseListOptions.Builder<Dining>()
+        FirebaseListOptions<DataRank> options = new FirebaseListOptions.Builder<DataRank>()
                 .setLayout(R.layout.itemrow)
-                .setQuery(query, Dining.class)
+                .setQuery(query, DataRank.class)
                 .build();
 
         adapter = new FirebaseListAdapter(options) {
@@ -44,7 +39,7 @@ public class Study extends AppCompatActivity {
                 TextView tvLocation = v.findViewById(R.id.tvLocation);
                 ImageView ivOccupationRate = v.findViewById(R.id.ivOccupancyRate);
 
-                Dining location = (Dining) model;
+                DataRank location = (DataRank) model;
                 String key = location.getKey().toString();
 
                 int resourceId = getResources().getIdentifier(key, "drawable", getPackageName());
@@ -66,7 +61,7 @@ public class Study extends AppCompatActivity {
 //        listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
 //            @Override
 //            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-//                DatabaseReference reff = FirebaseDatabase.getInstance().getReference().child("Dining");
+//                DatabaseReference reff = FirebaseDatabase.getInstance().getReference().child("DataRank");
 //                final Intent intent = new Intent();
 //
 //                intent.putExtra()
@@ -74,15 +69,15 @@ public class Study extends AppCompatActivity {
 //        });
 
 
-//        listView.setAdapter(new FirebaseListAdapter<Dining>(this, Dining.class,
+//        listView.setAdapter(new FirebaseListAdapter<DataRank>(this, DataRank.class,
 //                android.R.layout.simple_list_item_1, occupancyReference) {
 //
 //            @Override
-//            protected void populateView(@NonNull View v, @NonNull Dining model, int position) {
+//            protected void populateView(@NonNull View v, @NonNull DataRank model, int position) {
 //                ((TextView) v.findViewById(android.R.id.text1)).setText(model.getName());
 //            }
 //        });
-//        adapter = new CustomAdapter(Study.this,R.layout.itemrow,items);
+//        adapter = new CustomAdapter(DiningRank.this,R.layout.itemrow,items);
 //        listView.setAdapter(adapter);
 //        adapter.notifyDataSetChanged();
     }

@@ -33,7 +33,7 @@ public class Building3Lvl1 extends AppCompatActivity {
                 final Intent intent = new Intent();
 
                 intent.putExtra("Location", "Campus Centre");
-                intent.putExtra("picture",R.drawable.canpus_centre);
+                intent.putExtra("picture",R.drawable.campus_centre);
 
                 intent.setClass(Building3Lvl1.this,Location.class);
                 startActivity(intent);

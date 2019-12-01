@@ -1,7 +1,6 @@
 package com.example.a50001_1d_hawkeye;
 
 import androidx.appcompat.app.AppCompatActivity;
-import androidx.core.view.MenuItemCompat;
 
 import android.content.Intent;
 import android.os.Bundle;
@@ -57,7 +56,7 @@ public class SearchByKey extends AppCompatActivity {
         items.add(new DataItem(R.drawable.crooked_cooks,"Crooked Cooks"));
         items.add(new DataItem(R.drawable.my_nonnas,"My Nonnas"));
         items.add(new DataItem(R.drawable.gom_gom,"Gom Gom"));
-        items.add(new DataItem(R.drawable.canpus_centre,"Campus Centre"));
+        items.add(new DataItem(R.drawable.campus_centre,"Campus Centre"));
         items.add(new DataItem(R.drawable.canteen,"Canteen"));
         Collections.sort(items, new Comparator<DataItem>() {
             @Override

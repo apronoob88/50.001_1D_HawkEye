@@ -1,16 +1,16 @@
 package com.example.a50001_1d_hawkeye;
 
-public class Dining {
+public class DataRank {
     private String name;
     private int occupancyRate;
     private int number;
     private int totalCapacity;
     private String key;
-    Dining(){
+    DataRank(){
 
     }
 
-    public Dining(String name, int occupancyRate, int number, int totalCapacity) {
+    public DataRank(String name, int occupancyRate, int number, int totalCapacity) {
         this.name = name;
         this.occupancyRate = occupancyRate;
         this.number = number;
