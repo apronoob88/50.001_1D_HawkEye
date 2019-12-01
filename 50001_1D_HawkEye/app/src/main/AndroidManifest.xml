@@ -11,7 +11,8 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".BigEventsRank"></activity>
+        <activity android:name=".SearchByRankDetails"></activity>
+        <activity android:name=".BigEventsRank" />
         <activity android:name=".SportsRank" />
         <activity android:name=".StudyRank" />
         <activity android:name=".DiningRank" />

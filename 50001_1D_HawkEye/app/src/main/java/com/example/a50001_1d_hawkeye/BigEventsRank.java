@@ -3,6 +3,7 @@ package com.example.a50001_1d_hawkeye;
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.ImageView;
@@ -57,16 +58,13 @@ public class BigEventsRank extends AppCompatActivity {
                 else{
                     ivOccupationRate.setImageResource(R.drawable.red);
                 }
-                final String single_view = getRef(position).getKey();
+                final String locationClicked = getRef(position).getKey();
                 v.setOnClickListener(new View.OnClickListener() {
                     @Override
                     public void onClick(View v) {
-                        Toast.makeText(Study.this, single_view, Toast.LENGTH_SHORT).show();
-                        Intent moreDetailed = new Intent(Study.this,MoreDetailed.class);
-                        //attach the intent reference to access each item and key
-                        moreDetailed.putExtra("Name",single_view);
-                        int resourceId = getResources().getIdentifier(single_view, "drawable", getPackageName());
-                        moreDetailed.putExtra("recourceId",resourceId);
+                        Intent moreDetailed = new Intent(BigEventsRank.this, SearchByRankDetails.class);
+                        moreDetailed.putExtra("Name",locationClicked);
+                        moreDetailed.putExtra("category","Big Events");
                         startActivity(moreDetailed);//Start the new activity
 
                     }
