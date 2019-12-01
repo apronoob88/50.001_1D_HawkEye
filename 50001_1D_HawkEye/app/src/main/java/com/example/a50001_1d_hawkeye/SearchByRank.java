@@ -31,5 +31,12 @@ public class SearchByRank extends AppCompatActivity {
                 startActivity(blk61);
             }
         });
+        Dining.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent dining= new Intent (SearchByRank.this, Dinning.class);
+                startActivity(dining);
+            }
+        });
     }
 }

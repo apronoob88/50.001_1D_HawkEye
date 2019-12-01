@@ -21,10 +21,12 @@ import java.util.concurrent.TimeUnit;
 public class CompareItems implements Comparator<DataItem> {
     int o1;
     int o2;
-    CompareItems(){
+
+    CompareItems() {
 
     }
-    public int compare(DataItem a, DataItem b){
+
+    public int compare(DataItem a, DataItem b) {
         Log.i("DataA", a.getLocation());
 //        Boolean check = true;
 //        while(check == true){
@@ -41,17 +43,25 @@ public class CompareItems implements Comparator<DataItem> {
 //        int oo2 = o2;
 
 
-
-
         //Tasks.await(taskFromFirebase);
-//        int A = getOccupancyRate(a);
-//        int B = getOccupancyRate(b);
+////        int A = getOccupancyRate(a);
+////        int B = getOccupancyRate(b);
         setOccupancyRate1(a);
-        Log.i("checkOtime","O time is:");
+        Log.i("checkOtime", "O time is:");
         setOccupancyRate2(b);
 
-        Log.i("yutongo1",String.valueOf(o1));
-        Log.i("yutong02",String.valueOf(o2));
+        Log.i("yutongo1", String.valueOf(o1));
+        Log.i("yutong02", String.valueOf(o2));
+        if (o1 < o2) {
+            Log.i("checkOtime2", "O time2 is");
+            return -1;
+        } else if (o1 == o2) {
+            return 0;
+        } else {
+            return 1;
+        }
+    }
+
 //        try
 //        {
 //            Thread.sleep(1000);
@@ -60,17 +70,7 @@ public class CompareItems implements Comparator<DataItem> {
 //        {
 //            Thread.currentThread().interrupt();
 //        }
-        if (o1<o2){
-            Log.i("checkOtime2","O time2 is");
-            return -1;
-        }
 
-        else if(o1==o2){
-            return 0;
-        }
-        else{
-            return 1;
-        }
 //        if (A<B){
 //            return -1;
 //        }
@@ -81,37 +81,37 @@ public class CompareItems implements Comparator<DataItem> {
 //        else{
 //            return 1;
 //        }
-    }
-    public int getOccupancyRate(DataItem dataItem){
-
-        final String checkLocation= dataItem.getLocation();
-        final ArrayList<Integer> output= new ArrayList<>();
-        Log.i("dataItemLocation",checkLocation);
-        DatabaseReference reff= FirebaseDatabase.getInstance().getReference().child("Locations");
-        reff.addValueEventListener(new ValueEventListener() {
-            @Override
-            public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
-                String occupancyRateInner =dataSnapshot.child(checkLocation).child("occupancy rate").getValue().toString();
-                Log.i("occupancyRateInner",occupancyRateInner);
-                o1=Integer.parseInt(occupancyRateInner);
-                output.add(Integer.parseInt(occupancyRateInner));
-                Log.i("checkO1",String.valueOf(o1));
-
-            }
-
-            @Override
-            public void onCancelled(@NonNull DatabaseError databaseError) {
-
-            }
-
-        });
-        Log.i("outputOccupancy",String.valueOf(output.get(0)));
-        int oo1 = o1;
-        return oo1;
-        //return output.get(0);
-
-
-    }
+//    public int getOccupancyRate(DataItem dataItem){
+//
+//        final String checkLocation= dataItem.getLocation();
+//        final ArrayList<Integer> output= new ArrayList<>();
+//        Log.i("dataItemLocation",checkLocation);
+//        DatabaseReference reff= FirebaseDatabase.getInstance().getReference().child("Locations");
+//        reff.addValueEventListener(new ValueEventListener() {
+//            @Override
+//            public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
+//                String occupancyRateInner =dataSnapshot.child(checkLocation).child("occupancy rate").getValue().toString();
+//                Log.i("occupancyRateInner",occupancyRateInner);
+//
+//                o1=Integer.parseInt(occupancyRateInner);
+//                output.add(Integer.parseInt(occupancyRateInner));
+//                Log.i("checkO1",String.valueOf(o1));
+//
+//            }
+//
+//            @Override
+//            public void onCancelled(@NonNull DatabaseError databaseError) {
+//
+//            }
+//
+//        });
+//        Log.i("outputOccupancy",String.valueOf(output.get(0)));
+//        int oo1 = o1;
+//        return oo1;
+//        //return output.get(0);
+//
+//
+//    }
 
 
 
@@ -123,13 +123,12 @@ public class CompareItems implements Comparator<DataItem> {
         DatabaseReference reff= FirebaseDatabase.getInstance().getReference().child("Locations");
         reff.addValueEventListener(new ValueEventListener() {
             @Override
-            public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
+            public void onDataChange (@NonNull DataSnapshot dataSnapshot) {
                 String occupancyRateInner =dataSnapshot.child(checkLocation).child("occupancy rate").getValue().toString();
                 Log.i("occupancyRateInner",occupancyRateInner);
 
                 o1=Integer.parseInt(occupancyRateInner);
                 Log.i("checkO1",String.valueOf(o1));
-
             }
 
             @Override
@@ -151,6 +150,7 @@ public class CompareItems implements Comparator<DataItem> {
                 String occupancyRateInner =dataSnapshot.child(checkLocation).child("occupancy rate").getValue().toString();
 
                 o2=Integer.parseInt(occupancyRateInner);
+                Log.i("checkO1",String.valueOf(o2));
             }
 
             @Override

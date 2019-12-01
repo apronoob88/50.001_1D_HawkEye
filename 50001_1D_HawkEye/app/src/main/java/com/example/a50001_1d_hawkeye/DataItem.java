@@ -3,6 +3,7 @@ package com.example.a50001_1d_hawkeye;
 public class DataItem {
     int id;
     String location;
+    String name;
     int occupancyRate;
     public DataItem(int id, String location){
         this.id=id;
@@ -12,6 +13,7 @@ public class DataItem {
     public int getId() {
         return id;
     }
+
 
     public String getLocation() {
         return location;
