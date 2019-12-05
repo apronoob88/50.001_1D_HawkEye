@@ -48,21 +48,26 @@ public class CustomAdapter extends ArrayAdapter<DataItem> {
                 String occupancyRateInner =dataSnapshot.child(checkLocation).child("occupancy rate").getValue().toString();
                 float occ = Float.parseFloat(occupancyRateInner);
                 int occupancyRate = Math.round(occ);
-                if(occupancyRate<15){
-
-                    occupancyRateImage.setImageResource(R.drawable.green);
-                    Log.i("t","15");
-
-                }
-                else if(occupancyRate<50){
-                    occupancyRateImage.setImageResource(R.drawable.orange);
-                    Log.i("t","50");
-                }
-                //setOccupancyRateAttribute(60);
-                else{
-                    occupancyRateImage.setImageResource(R.drawable.red);
-                    Log.i("t","else");
-                }
+                /** occupancy rating color for search key view*/
+//                if(occupancyRate<20){
+//
+//                    occupancyRateImage.setImageResource(R.drawable.green);
+//                    Log.i("t","15");
+//
+//                }
+//                else if(occupancyRate<40){
+//                    occupancyRateImage.setImageResource(R.drawable.yellow);
+//                    Log.i("t","50");
+//                }
+//                //setOccupancyRateAttribute(60);
+//                else if(occupancyRate<70){
+//                    occupancyRateImage.setImageResource(R.drawable.orange);
+//                    Log.i("t","50");
+//                }
+//                else{
+//                    occupancyRateImage.setImageResource(R.drawable.red);
+//                    Log.i("t","else");
+//                }
             }
 
             @Override

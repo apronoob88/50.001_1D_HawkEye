@@ -48,10 +48,13 @@ public class StudyRank extends AppCompatActivity {
                 ivLocation.setImageResource(resourceId);
 
                 tvLocation.setText(location.getName().toString());
-                if(location.getOccupancyRate()<15){
+                if(location.getOccupancyRate()<20){
                     ivOccupationRate.setImageResource(R.drawable.green);
                 }
-                else if(location.getOccupancyRate()<60){
+                else if(location.getOccupancyRate()<40){
+                    ivOccupationRate.setImageResource(R.drawable.yellow);
+                }
+                else if(location.getOccupancyRate()<70){
                     ivOccupationRate.setImageResource(R.drawable.orange);
                 }
                 else{

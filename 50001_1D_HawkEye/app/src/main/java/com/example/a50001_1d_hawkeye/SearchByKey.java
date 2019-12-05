@@ -54,8 +54,11 @@ public class SearchByKey extends AppCompatActivity {
         items.add(new DataItem(R.drawable.lib3,"Library (level 3)"));
         items.add(new DataItem(R.drawable.dstar,"dStar Bistro"));
         items.add(new DataItem(R.drawable.crooked_cooks,"Crooked Cooks"));
+        items.add(new DataItem(R.drawable.swimming_pool,"Swimming Pool"));
+        items.add(new DataItem(R.drawable.study_room,"Study Room"));
         items.add(new DataItem(R.drawable.my_nonnas,"My Nonnas"));
         items.add(new DataItem(R.drawable.gom_gom,"Gom Gom"));
+        items.add(new DataItem(R.drawable.gym,"Gym"));
         items.add(new DataItem(R.drawable.campus_centre,"Campus Centre"));
         items.add(new DataItem(R.drawable.canteen,"Canteen"));
         Collections.sort(items, new Comparator<DataItem>() {
