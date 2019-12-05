@@ -5,6 +5,11 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="horizontal"
+    android:padding="10dp"
+    android:paddingLeft="17dp"
+    android:paddingStart="17dp"
+    android:paddingRight="17dp"
+    android:paddingEnd="17dp"
     android:id="@+id/itemrow">
 
     <ImageView
@@ -20,6 +25,7 @@
         android:id="@+id/tvLocation"
         android:layout_width="262dp"
         android:layout_height="48dp"
+        android:gravity="center"
         android:textColor="@android:color/white"
         android:layout_margin="24dp"
         android:layout_weight="1"
