@@ -5,33 +5,51 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@drawable/gradientsearch"
+
     tools:context=".Location">
 
     <TextView
         android:id="@+id/name"
         android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_height="50dp"
+        android:textSize="25dp"
+        android:layout_marginLeft="10dp"
         android:text="TextView"
         tools:layout_editor_absoluteX="187dp"
-        tools:layout_editor_absoluteY="391dp" />
+        tools:layout_editor_absoluteY="391dp"
+        android:textColor="@android:color/white"
+        />
 
     <TextView
         android:id="@+id/number"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="TextView" />
+        android:layout_height="50dp"
+        android:textSize="25dp"
+        android:layout_marginLeft="10dp"
+        android:text="TextView"
+        android:textColor="@android:color/white"
+        />
 
     <TextView
         android:id="@+id/totalCapacity"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="TextView" />
+        android:layout_height="50dp"
+        android:textSize="25dp"
+        android:layout_marginLeft="10dp"
+        android:text="TextView"
+        android:textColor="@android:color/white"
+        />
 
     <TextView
         android:id="@+id/occupancyRate"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="TextView" />
+        android:layout_height="50dp"
+        android:textSize="25dp"
+        android:layout_marginLeft="10dp"
+        android:text="TextView"
+        android:textColor="@android:color/holo_red_dark"
+        />
 
     <ImageView
         android:id="@+id/picture"

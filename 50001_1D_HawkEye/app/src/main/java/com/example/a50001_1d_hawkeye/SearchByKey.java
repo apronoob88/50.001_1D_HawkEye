@@ -1,8 +1,10 @@
 package com.example.a50001_1d_hawkeye;
 
+import androidx.appcompat.app.ActionBar;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
+import android.graphics.Color;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.View;
@@ -10,6 +12,7 @@ import android.widget.AdapterView;
 
 import android.widget.ListView;
 import android.widget.SearchView;
+import android.widget.Toolbar;
 
 
 import java.util.ArrayList;
@@ -28,6 +31,7 @@ public class SearchByKey extends AppCompatActivity {
     CustomAdapter adapter;
     ArrayList<DataItem> items;
     ArrayList<String> search;
+    androidx.appcompat.widget.Toolbar toolbar;
 
     DatabaseReference reff;
 
@@ -42,6 +46,14 @@ public class SearchByKey extends AppCompatActivity {
         //findViewById is a method that finds the view
         // from the layout resource file that are attached with current Activity.
         listView=(ListView) findViewById(R.id.listView);
+        //actionBar.setTitle("");
+
+        toolbar =findViewById(R.id.custom_tool_bar);
+        toolbar.setTitle("Enter the location's name");
+        toolbar.setTitleTextColor(Color.WHITE);
+
+        setSupportActionBar(toolbar);
+
         search = new ArrayList<>();
 
         items = new ArrayList<>();
