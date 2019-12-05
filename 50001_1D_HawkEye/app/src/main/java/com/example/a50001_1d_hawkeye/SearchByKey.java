@@ -23,41 +23,36 @@ import java.util.Comparator;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 
-
+/*The class SearchByKey provides a search function that
+* allow the user to search for the location by keying in it's name
+* This is done by implementing a search view in a list view */
 public class SearchByKey extends AppCompatActivity {
     ListView listView;
     SearchView searchView;
     ArrayList<DataItem> updateItem;
     CustomAdapter adapter;
     ArrayList<DataItem> items;
-    ArrayList<String> search;
     androidx.appcompat.widget.Toolbar toolbar;
-
     DatabaseReference reff;
 
-    public void setUpdateItem(ArrayList<DataItem> updateItem) {
-        this.updateItem = updateItem;
-    }
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        //Initialising the references
         setContentView(R.layout.activity_search_by_key);
-        //findViewById is a method that finds the view
-        // from the layout resource file that are attached with current Activity.
         listView=(ListView) findViewById(R.id.listView);
-        //actionBar.setTitle("");
-
+        //Created a toolbar to display the search function as the theme selected is
+        //the theme that hides the action bar
         toolbar =findViewById(R.id.custom_tool_bar);
+        //set the title of the toolbar and promp the user to enter the name of the location
         toolbar.setTitle("Enter the location's name");
         toolbar.setTitleTextColor(Color.WHITE);
-
         setSupportActionBar(toolbar);
 
-        search = new ArrayList<>();
-
+        //Creating an ArrayList of DataItems and these dataItems will be displayed on the ListView
         items = new ArrayList<>();
-
         items.add(new DataItem(R.drawable.mph,"Multi-Purpose Hall"));
         items.add(new DataItem(R.drawable.ish1,"Indoor Sports Hall 1"));
         items.add(new DataItem(R.drawable.ish2,"Indoor Sports Hall 2"));
@@ -73,63 +68,77 @@ public class SearchByKey extends AppCompatActivity {
         items.add(new DataItem(R.drawable.gym,"Gym"));
         items.add(new DataItem(R.drawable.campus_centre,"Campus Centre"));
         items.add(new DataItem(R.drawable.canteen,"Canteen"));
+
+        //sort DataItems in the page in alphabetical order
         Collections.sort(items, new Comparator<DataItem>() {
             @Override
             public int compare(DataItem o1, DataItem o2) {
                 return o1.getLocation().compareTo(o2.getLocation());
             }
         });
-        //Collections.sort(items, new Comp());
+
+        //The method getData is called once in the onCreate with the input as a empty String
+        //This will display all the locations in the school without filtering
         getData("");
 
+        //When an item in the paged is clicked, we will go to the next page "Location" that
+        //displays the details of the location
         listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
                 reff = FirebaseDatabase.getInstance().getReference().child("Locations");
-                //final String checkLocation=updateItem.get(position).location;
+                //Creating an intent
                 final Intent intent = new Intent();
-
+                //pass the name of the location{as a string) to the next page
                 intent.putExtra("Location", updateItem.get(position).location);
+                //pass the id of the corresponding picture(as an integer) to the next page
                 intent.putExtra("picture",updateItem.get(position).id);
-
                 intent.setClass(SearchByKey.this,Location.class);
+                // go to Location.java
                 startActivity(intent);
 
             }
         });
     }
-
-
+    //Each time the user key in a value, the list to be displayed might change
+    //updateItem consists of the updated list of items to be displayed on the screen
+    public void setUpdateItem(ArrayList<DataItem> updateItem) {
+        this.updateItem = updateItem;
+    }
     private void getData (String query){
-        ArrayList<DataItem> output = new ArrayList<>();
+
         ArrayList<DataItem> filteredOutput = new ArrayList<>();
 
-        for (int i=0; i<items.size();i++){
-            output.add(items.get(i));
-        }
+        //If something has been keyed in by the user
         if(searchView != null){
-            for(DataItem item :output){
+            for(DataItem item :items){
+                // add the item to the filteredOutput if the location(name) of the item starts with
+                // whatever the user had keyed in
                 if(item.location.toLowerCase().startsWith(query.toLowerCase())){
                     filteredOutput.add(item);
                 }
             }
         }
+        // if the user had not input anything, the filteredOutput will just be items
         else{
-            filteredOutput=output;
+
+            filteredOutput=items;
         }
+        //set the global variable updateItem as the filteredOutput
         setUpdateItem(filteredOutput);
+        // Each time an user input something, a new view is propagated with the item
         adapter = new CustomAdapter(SearchByKey.this,R.layout.itemrow,filteredOutput);
         listView.setAdapter(adapter);
-        adapter.notifyDataSetChanged();
 
     }
+
+    //Creating a menu for the search function
     @Override
     public boolean onCreateOptionsMenu(Menu menu){
         getMenuInflater().inflate(R.menu.menu,menu);
         searchView = (SearchView) menu.findItem(R.id.item_search).getActionView();
-        //useless??
+        //prompt the user to search for
         searchView.setQueryHint(getString((R.string.Search)));
-        //useless??
         searchView.setIconifiedByDefault(true);
 
         searchView.setOnQueryTextListener(new SearchView.OnQueryTextListener() {
@@ -140,6 +149,8 @@ public class SearchByKey extends AppCompatActivity {
 
             @Override
             public boolean onQueryTextChange(String newText) {
+                // Method getData is called each time the text input of the user changes
+                // the text input is passed to getData
                 getData(newText);
                 return false;
             }
