@@ -4,78 +4,55 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@drawable/gradientlogin"
     tools:context=".SearchType">
 
     <TextView
         android:id="@+id/searchBy"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:fontFamily="sans-serif-smallcaps"
-        android:text="SEARCH"
+        android:text="Search by:"
         android:textAppearance="@style/TextAppearance.AppCompat.Large"
-        android:textColor="#ffff"
-        android:textSize="40dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.498"
+        app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.168" />
+        app:layout_constraintVertical_bias="0.15" />
 
     <Button
         android:id="@+id/buttonKeyword"
-        android:layout_width="257dp"
-        android:layout_height="81dp"
-        android:background="@drawable/round_corner_search"
+        android:layout_width="200dp"
+        android:layout_height="wrap_content"
         android:text="Keyword"
-        android:textColor="#ffff"
-        android:textSize="20dp"
-        android:drawableLeft="@drawable/ic_action_keyword"
-        android:drawablePadding="20dp"
-        android:paddingLeft="55dp"
-        android:gravity="center_vertical"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/searchBy"
-        app:layout_constraintVertical_bias="0.154" />
+        app:layout_constraintVertical_bias="0.04" />
 
     <Button
         android:id="@+id/buttonMap"
-        android:layout_width="257dp"
-        android:layout_height="81dp"
-        android:background="@drawable/round_corner_search"
+        android:layout_width="200dp"
+        android:layout_height="wrap_content"
         android:text="Map"
-        android:textColor="#ffff"
-        android:textSize="20dp"
-        android:drawableLeft="@drawable/ic_action_map"
-        android:drawablePadding="20dp"
-        android:paddingLeft="80dp"
-        android:gravity="center_vertical"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/buttonKeyword"
-        app:layout_constraintVertical_bias="0.156" />
+        app:layout_constraintVertical_bias="0.04" />
 
     <Button
         android:id="@+id/buttonOccupancyRanking"
-        android:layout_width="257dp"
-        android:layout_height="81dp"
-        android:background="@drawable/round_corner_search"
-        android:text="Occupancy"
-        android:textColor="#ffff"
-        android:textSize="20dp"
-        android:drawableLeft="@drawable/ic_action_occupancy"
-        android:drawablePadding="20dp"
-        android:paddingLeft="48dp"
-        android:gravity="center_vertical"
+        android:layout_width="200dp"
+        android:layout_height="wrap_content"
+        android:text="Occupancy Ranking"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/buttonMap"
-        app:layout_constraintVertical_bias="0.225" />
-
+        app:layout_constraintVertical_bias="0.04" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

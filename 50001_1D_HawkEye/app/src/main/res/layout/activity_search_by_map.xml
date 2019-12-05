@@ -4,9 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@drawable/gradientlogin"
     tools:context=".SearchByMap">
-
 
     <ImageView
         android:id="@+id/sutdimage"
@@ -14,89 +12,80 @@
         android:layout_height="wrap_content"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintHorizontal_bias="1.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="1.0" />
+        app:layout_constraintVertical_bias="0.0"
+        app:srcCompat="@drawable/base" />
+
 
     <TextView
         android:id="@+id/title"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:fontFamily="sans-serif-smallcaps"
         android:text="SUTD"
-        android:textColor="#ffff"
-        android:textSize="40dp"
+        android:textSize="35dp"
         app:layout_constraintBottom_toBottomOf="@+id/sutdimage"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toStartOf="@+id/sutdimage"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintHorizontal_bias="0.498"
-        app:layout_constraintVertical_bias="0.168" />
-
-    <ImageView
-        android:id="@+id/imageView4"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        app:srcCompat="@drawable/base"
-
-        tools:layout_editor_absoluteX="0dp"
-        tools:layout_editor_absoluteY="16dp" />
+        app:layout_constraintVertical_bias="0.17" />
 
     <Button
         android:id="@+id/building1"
-        android:layout_width="129dp"
-        android:layout_height="62dp"
-        android:alpha="0"
+        android:layout_width="115dp"
+        android:layout_height="50dp"
         android:clickable="true"
         android:text="b1"
+        android:alpha="0"
         android:visibility="visible"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.055"
+        app:layout_constraintHorizontal_bias="0.085"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="@id/imageView4"
-        app:layout_constraintVertical_bias="0.645" />
+        app:layout_constraintTop_toTopOf="@+id/sutdimage"
+        app:layout_constraintVertical_bias="0.675" />
 
     <Button
         android:id="@+id/building2"
-        android:layout_width="133dp"
-        android:layout_height="67dp"
-        android:alpha="0"
+        android:layout_width="115dp"
+        android:layout_height="50dp"
         android:clickable="true"
         android:text="b2"
         android:visibility="visible"
-        app:layout_constraintBottom_toBottomOf="@id/imageView4"
+        android:alpha="0"
+        app:layout_constraintBottom_toBottomOf="@+id/sutdimage"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.057"
+        app:layout_constraintHorizontal_bias="0.097"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="@id/imageView4"
-        app:layout_constraintVertical_bias="0.54" />
+        app:layout_constraintTop_toTopOf="@+id/sutdimage"
+        app:layout_constraintVertical_bias="0.55" />
 
     <Button
         android:id="@+id/building3"
-        android:layout_width="66dp"
-        android:layout_height="82dp"
-        android:alpha="0"
+        android:layout_width="wrap_content"
+        android:layout_height="50dp"
         android:rotation="300"
         android:text="b3"
         android:visibility="visible"
-        app:layout_constraintBottom_toBottomOf="@id/imageView4"
+        android:alpha="0"
+        app:layout_constraintBottom_toBottomOf="@+id/sutdimage"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.484"
+        app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="@id/imageView4"
-        app:layout_constraintVertical_bias="0.541" />
+        app:layout_constraintTop_toTopOf="@+id/sutdimage"
+        app:layout_constraintVertical_bias="0.55" />
 
     <Button
         android:id="@+id/blk57"
-        android:layout_width="99dp"
-        android:layout_height="58dp"
-        android:alpha="0"
+        android:layout_width="wrap_content"
+        android:layout_height="25dp"
         android:rotation="45"
+        android:alpha="0"
         android:text="57"
         android:visibility="visible"
-        app:layout_constraintBottom_toBottomOf="@id/imageView4"
+        app:layout_constraintBottom_toBottomOf="@+id/sutdimage"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.68"
         app:layout_constraintStart_toStartOf="parent"
@@ -105,16 +94,16 @@
 
     <Button
         android:id="@+id/SportsAndRecreationCentreButton"
-        android:layout_width="72dp"
-        android:layout_height="69dp"
+        android:layout_width="80dp"
+        android:layout_height="65dp"
         android:alpha="0"
         android:rotation="315"
         android:text="SportsnRecre"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.875"
+        app:layout_constraintHorizontal_bias="0.876"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="@id/imageView4"
-        app:layout_constraintVertical_bias="0.463" />
+        app:layout_constraintTop_toTopOf="@+id/sutdimage"
+        app:layout_constraintVertical_bias="0.465" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

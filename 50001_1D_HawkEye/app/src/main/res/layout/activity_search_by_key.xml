@@ -10,7 +10,6 @@
     android:paddingLeft="0dp"
     android:paddingRight="0dp"
     android:paddingTop="0dp"
-    android:background="@drawable/gradientlogin"
     tools:context=".SearchByKey">
 
     <ListView
@@ -22,10 +21,6 @@
         android:layout_alignParentTop="true"
         android:layout_marginStart="6dp"
         android:layout_marginLeft="6dp"
-        android:layout_marginRight="6dp"
-        android:layout_marginEnd="6dp"
-        android:layout_marginTop="10dp"
-        android:layout_marginBottom="10dp"
-        android:textColor="@android:color/white"/>
+        android:layout_marginTop="4dp"/>
 
 </RelativeLayout>

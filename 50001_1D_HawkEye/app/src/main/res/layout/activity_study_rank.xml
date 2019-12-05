@@ -6,7 +6,10 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@drawable/gradientsearch"
+    android:paddingBottom="0dp"
+    android:paddingLeft="0dp"
+    android:paddingRight="0dp"
+    android:paddingTop="0dp"
     tools:context=".StudyRank">
 
     <ListView
@@ -18,9 +21,6 @@
         android:layout_alignParentTop="true"
         android:layout_marginStart="6dp"
         android:layout_marginLeft="6dp"
-        android:layout_marginRight="6dp"
-        android:layout_marginEnd="6dp"
-        android:layout_marginTop="10dp"
-        android:layout_marginBottom="10dp"/>
+        android:layout_marginTop="4dp"/>
 
 </RelativeLayout>
