@@ -3,13 +3,11 @@ package com.example.a50001_1d_hawkeye;
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
-import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.ImageView;
 import android.widget.ListView;
 import android.widget.TextView;
-import android.widget.Toast;
 
 import com.firebase.ui.database.FirebaseListAdapter;
 import com.firebase.ui.database.FirebaseListOptions;
@@ -60,20 +58,8 @@ public class DiningRank extends AppCompatActivity {
                 else{
                     ivOccupationRate.setImageResource(R.drawable.red);
                 }
-                final String locationClicked = getRef(position).getKey();
-                v.setOnClickListener(new View.OnClickListener() {
-                    @Override
-                    public void onClick(View v) {
-                        Intent moreDetailed = new Intent(DiningRank.this, SearchByRankDetails.class);
-                        moreDetailed.putExtra("Name",locationClicked);
-                        moreDetailed.putExtra("category","Dining");
-                        startActivity(moreDetailed);//Start the new activity
-
-                    }
-                });
             }
         };
-
         listView.setAdapter(adapter);
 //        listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
 //            @Override
