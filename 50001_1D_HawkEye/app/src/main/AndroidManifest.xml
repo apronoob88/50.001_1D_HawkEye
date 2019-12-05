@@ -6,35 +6,38 @@
 
     <application
         android:allowBackup="true"
+        android:largeHeap="true"
+        android:hardwareAccelerated="false"
         android:icon="@mipmap/ic_launcher"
         android:label="@string/app_name"
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
         <activity android:name=".SearchByRankDetails"></activity>
-        <activity android:name=".BigEventsRank" />
-        <activity android:name=".SportsRank" />
-        <activity android:name=".StudyRank" />
-        <activity android:name=".DiningRank" />
-        <activity android:name=".Location" />
-        <activity android:name=".Blk61Lvl1" />
-        <activity android:name=".Blk61" />
-        <activity android:name=".Blk57Lvl2" />
-        <activity android:name=".Building2Lvl1" />
-        <activity android:name=".Building1Lvl3" />
-        <activity android:name=".Building1Lvl2" />
-        <activity android:name=".Building1Lvl1" />
-        <activity android:name=".Building3Lvl2" />
-        <activity android:name=".Building3Lvl1" />
-        <activity android:name=".Blk57" />
-        <activity android:name=".Building3" />
-        <activity android:name=".Building2" />
-        <activity android:name=".Building1" />
-        <activity android:name=".SearchByRank" />
-        <activity android:name=".SearchByMap" />
-        <activity android:name=".SearchByKey" />
-        <activity android:name=".SearchType" />
-        <activity android:name=".LoginPage">
+        <activity android:name=".BigEventsRank" android:screenOrientation="portrait"/>
+        <activity android:name=".SportsRank" android:screenOrientation="portrait"/>
+        <activity android:name=".StudyRank" android:screenOrientation="portrait"/>
+        <activity android:name=".DiningRank" android:screenOrientation="portrait"/>
+        <activity android:name=".Location" android:screenOrientation="portrait"/>
+        <activity android:name=".Blk61Lvl1" android:screenOrientation="portrait"/>
+        <activity android:name=".Blk61" android:screenOrientation="portrait"/>
+        <activity android:name=".Blk57Lvl2" android:screenOrientation="portrait"/>
+        <activity android:name=".Building2Lvl1" android:screenOrientation="portrait"/>
+        <activity android:name=".Building1Lvl3" android:screenOrientation="portrait"/>
+        <activity android:name=".Building1Lvl2" android:screenOrientation="portrait"/>
+        <activity android:name=".Building1Lvl1" android:screenOrientation="portrait"/>
+        <activity android:name=".Building3Lvl2" android:screenOrientation="portrait" />
+        <activity android:name=".Building3Lvl1" android:screenOrientation="portrait"/>
+        <activity android:name=".Blk57" android:screenOrientation="portrait"/>
+        <activity android:name=".Building3" android:screenOrientation="portrait"/>
+        <activity android:name=".Building2" android:screenOrientation="portrait"/>
+        <activity android:name=".Building1" android:screenOrientation="portrait"/>
+        <activity android:name=".SearchByRank" android:screenOrientation="portrait"/>
+        <activity android:name=".SearchByMap" android:screenOrientation="portrait"/>
+        <activity android:name=".SearchByKey" android:screenOrientation="portrait" />
+        <activity android:name=".SearchType" android:screenOrientation="portrait" />
+        <activity android:name=".LoginPage"
+            android:screenOrientation="portrait">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 

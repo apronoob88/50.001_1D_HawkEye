@@ -53,50 +53,65 @@
 
     <Button
         android:id="@+id/gymButton"
-        android:layout_width="57dp"
-        android:layout_height="62dp"
+        android:layout_width="70dp"
+        android:layout_height="50dp"
         android:alpha="0"
         android:rotation="315"
         android:text="gym"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.431"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="@id/imageView5"
-        app:layout_constraintVertical_bias="0.185" />
+        app:layout_constraintVertical_bias="0.227" />
+
+    <Button
+        android:id="@+id/PoolButton"
+        android:layout_width="120dp"
+        android:layout_height="60dp"
+        android:alpha="0"
+        android:rotation="30"
+        android:text="swimmingpool"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.838"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="@id/imageView5"
+        app:layout_constraintVertical_bias="0.171" />
 
     <Button
         android:id="@+id/ish1Button"
-        android:layout_width="108dp"
-        android:layout_height="111dp"
+        android:layout_width="89dp"
+        android:layout_height="86dp"
         android:alpha="0"
         android:rotation="315"
         android:text="ish1"
         app:layout_constraintBottom_toBottomOf="@id/imageView5"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.337"
+        app:layout_constraintHorizontal_bias="0.27"
         app:layout_constraintStart_toStartOf="@id/imageView5"
         app:layout_constraintTop_toTopOf="@id/imageView5"
-        app:layout_constraintVertical_bias="0.639" />
+        app:layout_constraintVertical_bias="0.636" />
 
     <Button
         android:id="@+id/ish2Button"
-        android:layout_width="108dp"
-        android:layout_height="70dp"
+        android:layout_width="100dp"
+        android:layout_height="83dp"
         android:alpha="0"
         android:rotation="315"
         android:text="ish2"
         app:layout_constraintBottom_toBottomOf="@id/imageView5"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.745"
+        app:layout_constraintHorizontal_bias="0.649"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="@id/imageView5"
-        app:layout_constraintVertical_bias="0.381" />
+        app:layout_constraintVertical_bias="0.378" />
 
     <ImageView
         android:id="@+id/imageView5"
-        android:layout_width="422dp"
-        android:layout_height="497dp"
-        android:layout_marginBottom="84dp"
+        android:layout_width="339dp"
+        android:layout_height="408dp"
+        android:layout_marginBottom="20dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
