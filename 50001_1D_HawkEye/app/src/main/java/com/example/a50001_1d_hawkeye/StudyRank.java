@@ -3,6 +3,7 @@ package com.example.a50001_1d_hawkeye;
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.ImageView;
@@ -59,6 +60,17 @@ public class StudyRank extends AppCompatActivity {
                 else{
                     ivOccupationRate.setImageResource(R.drawable.red);
                 }
+                final String locationClicked = getRef(position).getKey();
+                v.setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View v) {
+                        Intent moreDetailed = new Intent(StudyRank.this, SearchByRankDetails.class);
+                        moreDetailed.putExtra("Name",locationClicked);
+                        moreDetailed.putExtra("category","Study");
+                        startActivity(moreDetailed);//Start the new activity
+
+                    }
+                });
             }
         };
         listView.setAdapter(adapter);
