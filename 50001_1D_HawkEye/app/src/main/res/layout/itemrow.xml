@@ -10,6 +10,7 @@
     android:paddingStart="17dp"
     android:paddingRight="17dp"
     android:paddingEnd="17dp"
+
     android:id="@+id/itemrow">
 
     <ImageView
