@@ -29,12 +29,14 @@ public class SportsRank extends AppCompatActivity {
         setContentView(R.layout.activity_sports_rank);
         listView=(ListView) findViewById(R.id.listViewSports);
 
+        //Order the locations displayed under the Study category based on their occupancyRate
         Query query = FirebaseDatabase.getInstance().getReference().child("Sports").orderByChild("occupancyRate");
         FirebaseListOptions<DataRank> options = new FirebaseListOptions.Builder<DataRank>()
                 .setLayout(R.layout.itemrow)
                 .setQuery(query, DataRank.class)
                 .build();
 
+        // populating the view using FirebaseListAdapter
         adapter = new FirebaseListAdapter(options) {
             @Override
             protected void populateView(@NonNull View v, @NonNull Object model, int position) {
@@ -43,14 +45,19 @@ public class SportsRank extends AppCompatActivity {
                 ImageView ivOccupationRate = v.findViewById(R.id.ivOccupancyRate);
 
                 DataRank location = (DataRank) model;
+
+                // Retrieve the keys(string with the same name as images in the drawable file) stored under each location on the firebase
                 String key = location.getKey().toString();
-                Log.i("jemy", key);
 
+                // Convert the key retrieved into integer resource id
                 int resourceId = getResources().getIdentifier(key, "drawable", getPackageName());
+                //Set the corresponding image beside each location displayed
                 ivLocation.setImageResource(resourceId);
-
+                // Set the TextView as the name of the location
                 tvLocation.setText(location.getName().toString());
-                Log.i("jemy", location.getName().toString());
+
+                // Set a different coloured images to indicate the emptiness of the place
+                // based on the occupancyRate
                 if(location.getOccupancyRate()<20){
                     ivOccupationRate.setImageResource(R.drawable.green);
                 }
@@ -68,7 +75,12 @@ public class SportsRank extends AppCompatActivity {
                     @Override
                     public void onClick(View v) {
                         Intent moreDetailed = new Intent(SportsRank.this, SearchByRankDetails.class);
+                        // put an intent of which location is being clicked based
+                        // on the index of the location on the page
                         moreDetailed.putExtra("Name",locationClicked);
+                        // Pass the String intent "Sports", so that the nxt page can
+                        // retrieve data under the node "Study" from the firebase
+                        moreDetailed.putExtra("category","Study");
                         moreDetailed.putExtra("category","Sports");
                         startActivity(moreDetailed);//Start the new activity
 
@@ -77,28 +89,7 @@ public class SportsRank extends AppCompatActivity {
             }
         };
         listView.setAdapter(adapter);
-//        listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
-//            @Override
-//            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-//                DatabaseReference reff = FirebaseDatabase.getInstance().getReference().child("DataRank");
-//                final Intent intent = new Intent();
-//
-//                intent.putExtra()
-//            }
-//        });
 
-
-//        listView.setAdapter(new FirebaseListAdapter<DataRank>(this, DataRank.class,
-//                android.R.layout.simple_list_item_1, occupancyReference) {
-//
-//            @Override
-//            protected void populateView(@NonNull View v, @NonNull DataRank model, int position) {
-//                ((TextView) v.findViewById(android.R.id.text1)).setText(model.getName());
-//            }
-//        });
-//        adapter = new CustomAdapter(DiningRank.this,R.layout.itemrow,items);
-//        listView.setAdapter(adapter);
-//        adapter.notifyDataSetChanged();
     }
 
     @Override

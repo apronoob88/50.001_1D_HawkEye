@@ -19,7 +19,6 @@ import java.util.ArrayList;
 
 public class StudyRank extends AppCompatActivity {
     private ListView listView;
-    private ArrayList<DataItem> items;
     FirebaseListAdapter adapter;
 
     @Override
@@ -28,12 +27,13 @@ public class StudyRank extends AppCompatActivity {
         setContentView(R.layout.activity_study_rank);
         listView=(ListView) findViewById(R.id.listViewStudy);
 
+        //Order the locations displayed under the Study category based on their occupancyRate
         Query query = FirebaseDatabase.getInstance().getReference().child("Study").orderByChild("occupancyRate");
         FirebaseListOptions<DataRank> options = new FirebaseListOptions.Builder<DataRank>()
-                .setLayout(R.layout.itemrow)
-                .setQuery(query, DataRank.class)
+                .setLayout(R.layout.itemrow) // calling itemrow layout such that each row shows a text and 2 images
+                .setQuery(query, DataRank.class) // Link to the Class DataRank
                 .build();
-
+        // populating the view using FirebaseListAdapter
         adapter = new FirebaseListAdapter(options) {
             @Override
             protected void populateView(@NonNull View v, @NonNull Object model, int position) {
@@ -42,12 +42,17 @@ public class StudyRank extends AppCompatActivity {
                 ImageView ivOccupationRate = v.findViewById(R.id.ivOccupancyRate);
 
                 DataRank location = (DataRank) model;
+                // Retrieve the keys(string with the same name as images in the drawable file) stored under each location on the firebase
                 String key = location.getKey().toString();
-
+                // Convert the key retrieved into integer resource id
                 int resourceId = getResources().getIdentifier(key, "drawable", getPackageName());
+                //Set the corresponding image beside each location displayed
                 ivLocation.setImageResource(resourceId);
-
+                // Set the TextView as the name of the location
                 tvLocation.setText(location.getName().toString());
+
+                // Set a different coloured images to indicate the emptiness of the place
+                // based on the occupancyRate
                 if(location.getOccupancyRate()<20){
                     ivOccupationRate.setImageResource(R.drawable.green);
                 }
@@ -60,12 +65,18 @@ public class StudyRank extends AppCompatActivity {
                 else{
                     ivOccupationRate.setImageResource(R.drawable.red);
                 }
+
+
                 final String locationClicked = getRef(position).getKey();
                 v.setOnClickListener(new View.OnClickListener() {
                     @Override
                     public void onClick(View v) {
                         Intent moreDetailed = new Intent(StudyRank.this, SearchByRankDetails.class);
+                        // put an intent of which location is being clicked based
+                        // on the index of the location on the page
                         moreDetailed.putExtra("Name",locationClicked);
+                        // Pass the String intent "Study", so that the nxt page can
+                        // retrieve data under the node "Study" from the firebase
                         moreDetailed.putExtra("category","Study");
                         startActivity(moreDetailed);//Start the new activity
 

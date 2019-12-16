@@ -35,17 +35,26 @@ public class SearchByRankDetails extends AppCompatActivity {
         totalCapacityContent = findViewById(R.id.totalCapacityContent);
         occupancyRateContent = findViewById(R.id.occupancyRateContent);
         pic = findViewById(R.id.picture);
+
+        // Obtain the string intent of which location is clicked from the previous page
         String location = getIntent().getStringExtra("Name");
         name.setText(location);
 
+        //The location being clicked in the previous page
+        // the details of this specific location will be retrieved from the firebase
         final String locationName = location;
+
+        // Obtain the string intent of which category to look for the location on the firebase
         final String category = getIntent().getStringExtra("category");
         reff = FirebaseDatabase.getInstance().getReference().child(category);
+
         reff.addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
 
+                // Get the String Key stored the fire base
                 String name = dataSnapshot.child(locationName).child("key").getValue().toString();
+                // Convert the String key obtained from the firebase to an integer resource ID
                 int resourceId = getResources().getIdentifier(name, "drawable", getPackageName());
                 String totalCapacityInner = "Total Capacity: ";
                 String occupancyRateInner = "Total Occupancy Rate: ";
@@ -53,6 +62,7 @@ public class SearchByRankDetails extends AppCompatActivity {
                 String numberContent1 = dataSnapshot.child(locationName).child("number").getValue().toString();
                 String totalCapacityContent1 = dataSnapshot.child(locationName).child("totalCapacity").getValue().toString();
                 float occupancyRateFloat = Math.round((Float.parseFloat(numberContent1) / Float.parseFloat(totalCapacityContent1)) * 100);
+                // Set the ImageView with image id corresponding the the key retrieved from the firebase
                 pic.setImageResource(resourceId);
                 number.setText(numberInner);
                 totalCapacity.setText(totalCapacityInner);
