@@ -1,4 +1,4 @@
-from libdw import pyrebase #Using the DW library for firebase
+from libdw import pyrebase #Using the DW library for firebase.
 import cv2
 import numpy as np 
 from PIL import Image
