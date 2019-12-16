@@ -143,7 +143,7 @@ import java.util.List;
                 //Getting the output vector from yolo
                 Mat blob = Dnn.blobFromImage(image, 0.00392, sz, new Scalar(0), true, false);
                 net.setInput(blob);
-
+//results
                 List<Mat> result = new ArrayList<>();
                 List<String> outBlobNames = getOutputNames(net);
                 //obtaining the results
