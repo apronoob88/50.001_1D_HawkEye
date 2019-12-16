@@ -74,28 +74,7 @@ public class StudyRank extends AppCompatActivity {
             }
         };
         listView.setAdapter(adapter);
-//        listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
-//            @Override
-//            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-//                DatabaseReference reff = FirebaseDatabase.getInstance().getReference().child("DataRank");
-//                final Intent intent = new Intent();
-//
-//                intent.putExtra()
-//            }
-//        });
 
-
-//        listView.setAdapter(new FirebaseListAdapter<DataRank>(this, DataRank.class,
-//                android.R.layout.simple_list_item_1, occupancyReference) {
-//
-//            @Override
-//            protected void populateView(@NonNull View v, @NonNull DataRank model, int position) {
-//                ((TextView) v.findViewById(android.R.id.text1)).setText(model.getName());
-//            }
-//        });
-//        adapter = new CustomAdapter(DiningRank.this,R.layout.itemrow,items);
-//        listView.setAdapter(adapter);
-//        adapter.notifyDataSetChanged();
     }
 
     @Override

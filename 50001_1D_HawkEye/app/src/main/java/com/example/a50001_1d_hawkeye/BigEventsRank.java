@@ -44,7 +44,6 @@ public class BigEventsRank extends AppCompatActivity {
 
                 DataRank location = (DataRank) model;
                 String key = location.getKey().toString();
-
                 int resourceId = getResources().getIdentifier(key, "drawable", getPackageName());
                 ivLocation.setImageResource(resourceId);
 
