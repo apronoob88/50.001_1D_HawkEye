@@ -8,8 +8,6 @@
         android:allowBackup="true"
         android:largeHeap="true"
         android:hardwareAccelerated="false"
-        android:icon="@drawable/logo_cover_page"
-        android:label="Hawk Eye"
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">

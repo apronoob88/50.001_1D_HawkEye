@@ -10,10 +10,29 @@
     tools:context=".SearchByRankDetails">
 
     <TextView
-        android:id="@+id/name"
-        android:layout_width="match_parent"
-        android:layout_height="50dp"
+        android:id="@+id/nameContent"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:fontFamily="sans-serif-smallcaps"
+        android:layout_marginTop="30dp"
         android:textSize="25dp"
+        android:layout_marginLeft="10dp"
+        android:layout_gravity="center"
+        android:text="Location:"
+        tools:layout_editor_absoluteX="187dp"
+        tools:layout_editor_absoluteY="391dp"
+        android:textColor="@android:color/white"
+        />
+
+    <TextView
+        android:id="@+id/name"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:fontFamily="sans-serif-smallcaps"
+        android:layout_marginTop="5dp"
+        android:layout_marginBottom="15dp"
+        android:textSize="20dp"
+        android:layout_gravity="center"
         android:layout_marginLeft="10dp"
         android:text="TextView"
         tools:layout_editor_absoluteX="187dp"
@@ -21,21 +40,42 @@
         android:textColor="@android:color/white"
         />
 
-
     <TextView
         android:id="@+id/number"
         android:layout_width="match_parent"
-        android:layout_height="50dp"
+        android:layout_height="wrap_content"
+        android:fontFamily="sans-serif-smallcaps"
+        android:gravity="center"
+        android:layout_marginTop="15dp"
         android:textSize="25dp"
         android:layout_marginLeft="10dp"
         android:text="TextView"
+        android:textColor="@android:color/white"
+        />
+
+    <TextView
+        android:id="@+id/numberContent"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:fontFamily="sans-serif-smallcaps"
+        android:layout_marginTop="5dp"
+        android:layout_marginBottom="15dp"
+        android:layout_gravity="center"
+        android:textSize="20dp"
+        android:layout_marginLeft="10dp"
+        android:text="TextView"
+        tools:layout_editor_absoluteX="187dp"
+        tools:layout_editor_absoluteY="391dp"
         android:textColor="@android:color/white"
         />
 
     <TextView
         android:id="@+id/totalCapacity"
         android:layout_width="match_parent"
-        android:layout_height="50dp"
+        android:layout_height="wrap_content"
+        android:fontFamily="sans-serif-smallcaps"
+        android:layout_marginTop="15dp"
+        android:gravity="center"
         android:textSize="25dp"
         android:layout_marginLeft="10dp"
         android:text="TextView"
@@ -43,18 +83,54 @@
         />
 
     <TextView
+        android:id="@+id/totalCapacityContent"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:fontFamily="sans-serif-smallcaps"
+        android:layout_marginTop="5dp"
+        android:layout_marginBottom="15dp"
+        android:textSize="20dp"
+        android:layout_marginLeft="10dp"
+        android:text="TextView"
+        android:layout_gravity="center"
+        tools:layout_editor_absoluteX="187dp"
+        tools:layout_editor_absoluteY="391dp"
+        android:textColor="@android:color/white"
+        />
+
+    <TextView
         android:id="@+id/occupancyRate"
         android:layout_width="match_parent"
-        android:layout_height="50dp"
+        android:layout_height="wrap_content"
+        android:fontFamily="sans-serif-smallcaps"
+        android:layout_marginTop="15dp"
+        android:gravity="center"
         android:textSize="25dp"
         android:layout_marginLeft="10dp"
         android:text="TextView"
-        android:textColor="@android:color/holo_red_light"
+        android:textColor="@android:color/holo_blue_light"
+        />
+
+    <TextView
+        android:id="@+id/occupancyRateContent"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:fontFamily="sans-serif-smallcaps"
+        android:layout_marginTop="5dp"
+        android:layout_marginBottom="15dp"
+        android:textSize="20dp"
+        android:layout_gravity="center"
+        android:layout_marginLeft="10dp"
+        android:text="TextView"
+        tools:layout_editor_absoluteX="187dp"
+        tools:layout_editor_absoluteY="391dp"
+        android:textColor="@android:color/white"
         />
 
     <ImageView
         android:id="@+id/picture"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_width="wrap_content"
+        android:layout_height="307dp"
+        android:layout_gravity="center"
         app:srcCompat="@drawable/canteen" />
 </LinearLayout>
