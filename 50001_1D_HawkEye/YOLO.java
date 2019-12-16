@@ -20,10 +20,12 @@ import org.opencv.dnn.Dnn;
 
     import java.util.ArrayList;
 import java.util.List;
+
+
     public class YOLO {
-
+       //Our class that Actually Implements the algorithm
         public static class YOLOO {
-
+            //YOLO can predict 80 classes, however for our case we only use 1 class. We filter this alter
             public  List<String> getOutputNames(Net net) {
                 List<String> names = new ArrayList<>();
 
@@ -33,6 +35,7 @@ import java.util.List;
                 outLayers.forEach((item) -> names.add(layersNames.get(item - 1)));
                 return names;
             }
+            //This is an overloaded version of the function. We can ignore this for now and move onto the other getBoxes() function
 
             public LinkedList<Point> getBoxes(String imagename) {
                 System.loadLibrary(Core.NATIVE_LIBRARY_NAME);
@@ -119,10 +122,15 @@ import java.util.List;
                 Imgcodecs.imwrite("out.png", image);
                 return coords;
             }
-            String modelWeights = "yolov3.weights";
+            
+            
+            //Now we are at the function that impelments modularity for ease of developement.
+            String modelWeights = "yolov3.weights";  // Loading the weights and the config file.
             String modelConfiguration = "yolov3.cfg";
 
-            Net net = Dnn.readNetFromDarknet(modelConfiguration, modelWeights);
+            //The config file specifies the structure of the network while the weights contain the actual matrix values.
+            Net net = Dnn.readNetFromDarknet(modelConfiguration, modelWeights); //loading the model
+            //here the Mat aa corresponds to the camera frame and String room corresponds to the room
             public LinkedList<Point> getBoxes(Mat aaa , String room) {
 
                 System.loadLibrary(Core.NATIVE_LIBRARY_NAME);
@@ -132,23 +140,25 @@ import java.util.List;
                 Mat image = aaa;
                 System.out.println(image.size());
                 Size sz = new Size(416, 416);
+                //Getting the output vector from yolo
                 Mat blob = Dnn.blobFromImage(image, 0.00392, sz, new Scalar(0), true, false);
                 net.setInput(blob);
 
                 List<Mat> result = new ArrayList<>();
                 List<String> outBlobNames = getOutputNames(net);
-
+                //obtaining the results
                 net.forward(result, outBlobNames);
 
                 outBlobNames.forEach(System.out::println);
                 result.forEach(System.out::println);
-
+               //Setting a high confidence threshold on a scale of 0 to 1
                 float confThreshold = 0.7f;
-                List<Integer> clsIds = new ArrayList<>();
-                List<Float> confs = new ArrayList<>();
-                List<Boolean>isShow = new ArrayList<>();
-                List<Rect> rects = new ArrayList<>();
-                LinkedList<Point> coords = new LinkedList<>();
+                List<Integer> clsIds = new ArrayList<>();  //Each class detected has an ID
+                List<Float> confs = new ArrayList<>(); //Each object detected has a confidence score associated to it
+                List<Boolean>isShow = new ArrayList<>(); //Show only if its a person
+                List<Rect> rects = new ArrayList<>(); //Coordinates of rectangle of object x y
+                LinkedList<Point> coords = new LinkedList<>();//Coordinates of rectangle w h
+                
                 for (int i = 0; i < result.size(); ++i)
                 {
                     // each row is a candidate detection, the 1st 4 numbers are
@@ -161,8 +171,8 @@ import java.util.List;
                         Core.MinMaxLocResult mm = Core.minMaxLoc(scores);
                         float confidence = (float)mm.maxVal;
                         Point classIdPoint = mm.maxLoc;
-                        if (confidence > confThreshold)
-                        {
+                        if (confidence > confThreshold) //Checking if the required confidence is in the prediction
+                        {  //Obtain the bounding boxes
                             int centerX = (int)(row.get(0,0)[0] * image.cols());
                             int centerY = (int)(row.get(0,1)[0] * image.rows());
                             int width   = (int)(row.get(0,2)[0] * image.cols());
@@ -171,7 +181,7 @@ import java.util.List;
                             int top     = centerY - height / 2;
 
                             clsIds.add((int)classIdPoint.x);
-                            if(classIdPoint.x==0.0)
+                            if(classIdPoint.x==0.0) //if the class is a person
                                 isShow.add(true);
                             else
                                 isShow.add(false);
@@ -183,7 +193,7 @@ import java.util.List;
                 int counter = 0;
                 if(isShow.size()!=0) {
 
-                    // Apply non-maximum suppression procedure.
+                    // Apply non-maximum suppression procedure. This is done to reduce flase positives
                     float nmsThresh = 0.5f;
 
                     MatOfFloat confidences = new MatOfFloat(Converters.vector_float_to_Mat(confs));
@@ -197,9 +207,9 @@ import java.util.List;
                     for (int i = 0; i < ind.length; ++i) {
                         int idx = ind[i];
                         Rect box = boxesArray[idx];
-                        if (isShow.get(i)) {
+                        if (isShow.get(i)) {//Displaying only those indices for which isShow outputs a True value
                             counter++;
-                            Imgproc.rectangle(image, box.tl(), box.br(), new Scalar(0, 0, 255), 2);
+                            Imgproc.rectangle(image, box.tl(), box.br(), new Scalar(0, 0, 255), 2); //Dispalying rectangle on Screen
                             coords.add(box.tl());
                             coords.add(box.br());
                             System.out.println(box.tl());
@@ -210,7 +220,8 @@ import java.util.List;
 
                 PrintWriter writer = null;
                 try {
-                    writer = new PrintWriter("roomcount.txt", "UTF-8");
+                    writer = new PrintWriter("roomcount.txt", "UTF-8"); //Writing to a file the room number and room count.
+                    //Our python code will read this file and use these data to upload to firebase
                 } catch (FileNotFoundException e) {
                     System.out.println("sup");
                     e.printStackTrace();
@@ -219,15 +230,15 @@ import java.util.List;
                     e.printStackTrace();
                 }
 
-                writer.println(room);
+                writer.println(room);//room name
 
-                writer.println(Integer.toString(counter));
+                writer.println(Integer.toString(counter)); //room count
                 System.out.println(counter);
                 writer.close();
-                Imgcodecs.imwrite(room+".png", image);
+                Imgcodecs.imwrite(room+".png", image); //saving detected image for debugging
                 String command = "firebase.py";
                 try {
-                    Process p = Runtime.getRuntime().exec("python "+command );
+                    Process p = Runtime.getRuntime().exec("python "+command ); //Calling the Python command to upload to firebase
                 } catch (IOException e) {
                     System.out.println("iuafhsfhisdfsdsf");
                     e.printStackTrace();
@@ -242,7 +253,7 @@ import java.util.List;
             System.out.println(Core.NATIVE_LIBRARY_NAME);
             Scanner in = new Scanner(System.in);
             String room = in.nextLine();
-            VideoCapture camera = new VideoCapture(0);
+            VideoCapture camera = new VideoCapture(0); //Initializing the camera
 
             Mat frame = new Mat();
 
@@ -255,12 +266,14 @@ import java.util.List;
             else {
                 int coutner = 0;
                 while(true){
-
+                    //If camera is opened and we correctly obtain a frame then we call the function
                     if (camera.read(frame)){
+                        //anonymous initialization
                         LinkedList<Point>coords = new YOLOO().getBoxes(frame, room);
 
                         System.out.println(coords);
                         coutner++;
+                        //Displaying in a window for debugging
        HighGui.imshow("sdlsdf",frame);
        HighGui.waitKey(3);
 
